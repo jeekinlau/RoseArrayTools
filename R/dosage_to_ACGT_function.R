@@ -32,7 +32,7 @@ dosage_to_ACGT <- function(dosage.file){
   dosage<-(read.csv(dosage.file, header = T, sep = ","))
   names(dosage)[1]<-"Affy.SNP.ID"
   annotation<-read.csv('https://raw.githubusercontent.com/jeekinlau/test_package/master/WagRhSNP68k_annotation_condensed.csv')
-  data<-merge(annotation_no_duplicate[,c(2,8,9)],dosage, by="Affy.SNP.ID")
+  data<-merge(annotation,dosage, by="Affy.SNP.ID")
   for (a in 1:nrow(data)){
     for (b in 4:ncol(data)){
       ifelse(data[a,b]==0,data[a,b]<-paste0(data[a,2],data[a,2],data[a,2],data[a,2]),
