@@ -44,7 +44,7 @@ dosage_to_ACGT <- function(dosage.file){
     print(a)
 
   }
-  write.csv(data,paste0(dosage_file_name,"converted_dosage_ACGT.csv"))
+  write.csv(data,paste0(dosage_file_name,"converted_dosage_ACGT.csv"),row.names = F)
   print("FINISHED")
 }
 
