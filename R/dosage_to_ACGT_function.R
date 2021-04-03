@@ -28,8 +28,8 @@
 
 
 dosage_to_ACGT <- function(dosage.file, progress=NULL){
-  if(is.null(progress)){progress<-T}
  dosage_file_name<-gsub(".csv","_",dosage.file)
+if(is.null(progress)){progress<-T}
   dosage<-(read.csv(dosage.file, header = T, sep = ","))
   names(dosage)[1]<-"Affy.SNP.ID"
   annotation<-read.csv('https://raw.githubusercontent.com/jeekinlau/test_package/master/docs/WagRhSNP68k_annotation_condensed.csv')
