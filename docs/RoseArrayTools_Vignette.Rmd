@@ -1,0 +1,23 @@
+---
+title: "RoseArrayTools_vignette"
+author: "Jeekin"
+date: "4/2/2021"
+output: html_document
+---
+
+
+# Introduction
+This package will be a collection of tools that are routinely used by Texas A&M University Rose Breeding Program for analysis of genetic data from the WagRhSNP68k SNP array
+
+# DosageToACGT
+This function "dosage_to_ACGT" requires a csv file returned from fitPoly formatted like below (left) and converts it to what you see on the right. The A allele is the "reference" allele and the B allele is the alternative allele and dosage is defined as the number of copies of the alternative allele.
+
+This is how to use the function. Be aware, this function was written as a loop inside of a loop with 5 ifelse statements thus on large files with many individuals it will take a long time. However there the console will print the marker number it is currently on to give you an estimate to the amount of time left. Default for progress is TRUE however if progress is set at F it will not print the markers completed and will only print a message of "FINISHED" when done.
+
+```{r eval=FALSE, include=T}
+dosage_to_ACGT(dosage.file="path_to_dosage_file.csv", progress=T)
+```
+
+
+![image of csv](C:/Users/Jeekin/Dropbox/Projects/R_Packages/Dosage_to_ACGT/DoseToACGT/Screenshot 2021-04-02 151131.png)
+
