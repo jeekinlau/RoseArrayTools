@@ -27,7 +27,8 @@
 
 
 
-dosage_to_ACGT <- function(dosage.file){
+dosage_to_ACGT <- function(dosage.file, progress=NULL){
+  if(is.null(progress)){progress=T}
   dosage_file_name<-gsub(".csv","_",dosage.file)
   dosage<-(read.csv(dosage.file, header = T, sep = ","))
   names(dosage)[1]<-"Affy.SNP.ID"
@@ -41,7 +42,7 @@ dosage_to_ACGT <- function(dosage.file){
                            ifelse(data[a,b]==3,data[a,b]<-paste0(data[a,2],data[a,3],data[a,3],data[a,3]),
                                   ifelse(data[a,b]==4,data[a,b]<-paste0(data[a,3],data[a,3],data[a,3],data[a,3]),NA)))))
     }
-    print(a)
+    if(progress==T){print(a)}
 
   }
   write.csv(data,paste0(dosage_file_name,"converted_dosage_ACGT.csv"),row.names = F)
