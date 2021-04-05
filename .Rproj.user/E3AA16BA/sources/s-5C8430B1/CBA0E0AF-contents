@@ -9,7 +9,7 @@
 
 
 compare_probes<-function(data_dat){
-  data_dat_name<-gsub(".csv","_",data_dat)
+  data_dat_name<-gsub(".dat","_",data_dat)
   library(data.table)
   calls<- as.matrix(fread(data_dat, select = c(1:3,12)))
   header_calls<-calls[1:1000,1:ncol(calls)]
