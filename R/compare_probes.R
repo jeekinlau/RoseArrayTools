@@ -91,7 +91,7 @@ compare_probes<-function(data_dat,progress=NULL){
 
   colnames(compared_calls)<-colnames(genocalls3)
 
-  write.csv(compared_calls, paste0(data_dat_name,"compared_calls.csv"), col.names = T, row.names = F)
+  write.csv(compared_calls[,-2], paste0(data_dat_name,"compared_calls.csv"), row.names = F)
 
   compared_calls<-matrix(,nrow(compare_probes),ncol(compare_probes))
   for (l in 1:nrow(compared_calls)){
@@ -108,7 +108,8 @@ compare_probes<-function(data_dat,progress=NULL){
 
     }
     if(progress==T){print(paste0("Marker_stats_",l))}}
-
-  write.csv(compared_calls, paste0(data_dat_name,"compared_calls_kind_counts.csv"),col.names = T,row.names = F)
+  colnames(compared_calls)<-colnames(genocalls3)
+  compared_calls[,1]<-compare_probes[,1,1]
+  write.csv(compared_calls[,-2], paste0(data_dat_name,"compared_calls_kind_counts.csv"),row.names = F)
   print("FINISHED")
 }
