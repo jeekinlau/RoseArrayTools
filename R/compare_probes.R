@@ -109,4 +109,5 @@ compare_probes<-function(data_dat){
     print(l)}
 
   write.csv(compared_calls, paste0(data_dat_name,"compared_calls_kind_counts.csv"),col.names = T,row.names = F)
+  print("FINISHED")
 }
