@@ -3,22 +3,22 @@
     "path": "~/GitHub/RoseArrayTools/docs/RoseArrayTools_Vignette.Rmd",
     "project_path": "docs/RoseArrayTools_Vignette.Rmd",
     "type": "r_markdown",
-    "hash": "92037378",
+    "hash": "3448519355",
     "contents": "",
     "dirty": false,
     "created": 1617637827925.0,
     "source_on_save": false,
     "relative_order": 4,
     "properties": {
-        "cursorPosition": "15,55",
-        "scrollLine": "1"
+        "cursorPosition": "5,2",
+        "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1617638849,
+    "lastKnownWriteTime": 1617639644,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1617638849567,
+    "last_content_update": 1617639644799,
     "read_only": false,
     "read_only_alternatives": []
 }
