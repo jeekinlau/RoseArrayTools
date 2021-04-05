@@ -3,9 +3,9 @@
     "path": "~/GitHub/RoseArrayTools/docs/RoseArrayTools_Vignette.Rmd",
     "project_path": "docs/RoseArrayTools_Vignette.Rmd",
     "type": "r_markdown",
-    "hash": "0",
+    "hash": "92037378",
     "contents": "",
-    "dirty": true,
+    "dirty": false,
     "created": 1617637827925.0,
     "source_on_save": false,
     "relative_order": 4,
@@ -14,11 +14,11 @@
         "scrollLine": "1"
     },
     "folds": "",
-    "lastKnownWriteTime": 1617423383,
+    "lastKnownWriteTime": 1617638849,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1617638353911,
+    "last_content_update": 1617638849567,
     "read_only": false,
     "read_only_alternatives": []
 }
