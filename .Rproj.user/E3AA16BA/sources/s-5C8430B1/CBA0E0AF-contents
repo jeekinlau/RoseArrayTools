@@ -8,7 +8,8 @@
 #
 
 
-compare_probes<-function(data_dat){
+compare_probes<-function(data_dat,progress=NULL){
+  if(is.null(progress)){progress<-T}
   data_dat_name<-gsub(".dat","_",data_dat)
   library(data.table)
   calls<- as.matrix(fread(data_dat, select = c(1:3,12)))
@@ -24,7 +25,7 @@ compare_probes<-function(data_dat){
 
   for (i in 1:nrow(markers)){
     markers[i,1]<-calls[i*num_ind,2]
-    print(i)
+    if(progress==T){print(paste0("step_1_",i))}
   }
 
 
@@ -47,7 +48,7 @@ compare_probes<-function(data_dat){
   for (a in 1:nrow(genocalls2)){
     probe<-genocalls2[a,2]
     genocalls2[a,1]<-genocall_order[which(genocall_order[,1]==probe),2]
-    print(a)
+    if(progress==T){print(paste0("step_2_",a))}
   }
 
   genocalls3<-genocalls2[order(genocalls2[,1]),]
@@ -61,7 +62,7 @@ compare_probes<-function(data_dat){
       compare_probes[j,k,1]<-genocalls[j*2-1,k]
       compare_probes[j,k,2]<-genocalls[j*2,k]
     }
-    print(j)
+    if(progress==T){print(paste0("step_3_",j))}
   }
 
   compared_calls<-matrix(,nrow(compare_probes),ncol(compare_probes))
@@ -80,7 +81,7 @@ compare_probes<-function(data_dat){
                                   ifelse(p1!=9 & p2!=9 & p1 != p2, compared_calls[l,m]<-NA,
                                          NA)))))
     }
-    print(l)}
+    if(progress==T){print(paste0("comparing_probes_",l))}}
 
 
   for (b in 1:nrow(compared_calls)){
@@ -106,7 +107,7 @@ compare_probes<-function(data_dat){
                                          NA)))))
 
     }
-    print(l)}
+    if(progress==T){print(paste0("Marker_stats_",l))}}
 
   write.csv(compared_calls, paste0(data_dat_name,"compared_calls_kind_counts.csv"),col.names = T,row.names = F)
   print("FINISHED")
