@@ -3,14 +3,14 @@
     "path": "~/GitHub/RoseArrayTools/DESCRIPTION",
     "project_path": "DESCRIPTION",
     "type": "dcf",
-    "hash": "4265445621",
+    "hash": "0",
     "contents": "",
-    "dirty": false,
+    "dirty": true,
     "created": 1617634371758.0,
     "source_on_save": false,
     "relative_order": 3,
     "properties": {
-        "cursorPosition": "7,14",
+        "cursorPosition": "11,2",
         "scrollLine": "0"
     },
     "folds": "",
@@ -18,7 +18,7 @@
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1617635812051,
+    "last_content_update": 1617636301676,
     "read_only": false,
     "read_only_alternatives": []
 }

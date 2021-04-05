@@ -8,4 +8,5 @@ Description:     This package is a complilation of tools that are used in the Te
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-Imports: data.table
+Imports: 
+  data.table
