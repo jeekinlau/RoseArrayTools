@@ -52,7 +52,9 @@ dosage_to_ACGT(dosage.file="path_to_dosage_file.csv", progress=T, separator = ""
 ```
 
 
-![image of input file and output file formats](C:/Users/Jeekin/Dropbox/Projects/R_Packages/Dosage_to_ACGT/DoseToACGT/Screenshot 2021-04-02 151131.png)
+![image of input file and output file formats no separator](C:/Users/Jeekin/Dropbox/Projects/R_Packages/Dosage_to_ACGT/DoseToACGT/Screenshot 2021-04-02 151131.png)
+
+![image of input file and output file formats with separator="|"](C:/Users/Jeekin/Dropbox/Projects/R_Packages/Dosage_to_ACGT/DoseToACGT/Screenshot 2021-04-23 104929.png)
 
 ## call_specs
 This function uses an output file of the function 'compare_probes' it uses the compared_calls_kind_counts.csv file to count what percentage of the calls are called by two probes, one probe, different probes, or not called. 
