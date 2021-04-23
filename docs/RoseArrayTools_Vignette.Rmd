@@ -12,11 +12,23 @@ output:
 # Introduction
 This package will be a collection of tools that are routinely used by Texas A&M University Rose Breeding Program for analysis of genetic data from the WagRhSNP68k SNP array.
 
+
+# Installation
+If you have not yet installed RoseArrayTools in R, use the following code to do so.
+
+```{r eval=FALSE, include=T}
+install.packages('devtools')
+devtools::install_github("jeekinlau/RoseArrayTools")
+```
+
+
 # Functions
 Below are the list of functions currently available:   
 compare_probes   
 dosage_to_ACGT   
 call_specs   
+
+
 
 ## compare_probes
 This function "compare_probes" takes as the input file the .dat long form file that fitPoly produces. However, on the WagRhSNP 68K SNP array, each marker is probed twice (forward and reverse strand). fitPoly scores all these probes as independent markers so we need to compare the probes. This function looks at each marker by looking at the genotype calls at each of the two probes for that given marker. The result of this function prints two new files, a compared_calls.csv file and a compared_calls_kind_counts.csv. 
