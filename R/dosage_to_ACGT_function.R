@@ -27,8 +27,9 @@
 
 
 
-dosage_to_ACGT <- function(dosage.file, progress=NULL){
+dosage_to_ACGT <- function(dosage.file, progress=NULL, separator=NULL){
   if(is.null(progress)){progress<-T}
+  if(is.null(separator)){separator<-""}
   dosage_file_name<-gsub(".csv","_",dosage.file)
   dosage<-(read.csv(dosage.file, header = T, sep = ","))
   names(dosage)[1]<-"Affy.SNP.ID"
@@ -36,11 +37,11 @@ dosage_to_ACGT <- function(dosage.file, progress=NULL){
   data<-merge(annotation,dosage, by="Affy.SNP.ID")
   for (a in 1:nrow(data)){
     for (b in 4:ncol(data)){
-      ifelse(data[a,b]==0,data[a,b]<-paste0(data[a,2],data[a,2],data[a,2],data[a,2]),
-             ifelse(data[a,b]==1,data[a,b]<-paste0(data[a,2],data[a,2],data[a,2],data[a,3]),
-                    ifelse(data[a,b]==2,data[a,b]<-paste0(data[a,2],data[a,2],data[a,3],data[a,3]),
-                           ifelse(data[a,b]==3,data[a,b]<-paste0(data[a,2],data[a,3],data[a,3],data[a,3]),
-                                  ifelse(data[a,b]==4,data[a,b]<-paste0(data[a,3],data[a,3],data[a,3],data[a,3]),NA)))))
+      ifelse(data[a,b]==0,data[a,b]<-paste0(data[a,2],separator,data[a,2],separator,data[a,2],separator,data[a,2]),
+             ifelse(data[a,b]==1,data[a,b]<-paste0(data[a,2],separator,data[a,2],separator,data[a,2],separator,data[a,3]),
+                    ifelse(data[a,b]==2,data[a,b]<-paste0(data[a,2],separator,data[a,2],separator,data[a,3],separator,data[a,3]),
+                           ifelse(data[a,b]==3,data[a,b]<-paste0(data[a,2],separator,data[a,3],separator,data[a,3],separator,data[a,3]),
+                                  ifelse(data[a,b]==4,data[a,b]<-paste0(data[a,3],separator,data[a,3],separator,data[a,3],separator,data[a,3]),NA)))))
     }
     if(progress==T){print(a)}
 

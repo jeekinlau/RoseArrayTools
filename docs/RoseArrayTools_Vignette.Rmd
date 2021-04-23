@@ -43,10 +43,12 @@ compare_probes(data_dat="path_to_file.dat", progress=T)
 ## dosage_to_ACGT
 This function "dosage_to_ACGT" requires a csv file returned from fitPoly formatted like below (left) and converts it to what you see on the right. The A allele is the "reference" allele and the B allele is the alternative allele and dosage is defined as the number of copies of the alternative allele.
 
-This is how to use the function. Be aware, this function was written as a loop inside of a loop with 5 ifelse statements thus on large files with many individuals it will take a long time. However there the console will print the marker number it is currently on to give you an estimate to the amount of time left. Default for progress is TRUE however if progress is set at F it will not print the markers completed and will only print a message of "FINISHED" when done.
+This is how to use the function. Be aware, this function was written as a loop inside of a loop with 5 ifelse statements thus on large files with many individuals it will take a long time. However there the console will print the marker number it is currently on to give you an estimate to the amount of time left. Default for progress is TRUE however if progress is set at F it will not print the markers completed and will only print a message of "FINISHED" when done. 
+
+IMPORTANT: if you leave the separator argument blank, then a the output will not have any sort of delimiter between the characters i.e. a dosage of "1" with reference allele "A" and alternative allele "C" will return the value AAAC however if you designate the separator argument with any character, the output will use that to separate the alleles. For example if you used the same example above and you chose a separator = "|" then the result will be A|A|A|C instead of AAAC. The default is no separator.
 
 ```{r eval=FALSE, include=T}
-dosage_to_ACGT(dosage.file="path_to_dosage_file.csv", progress=T)
+dosage_to_ACGT(dosage.file="path_to_dosage_file.csv", progress=T, separator = "")
 ```
 
 
