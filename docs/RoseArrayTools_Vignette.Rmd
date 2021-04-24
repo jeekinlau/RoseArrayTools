@@ -24,15 +24,16 @@ devtools::install_github("jeekinlau/RoseArrayTools")
 
 
 # Functions
-Below are the list of functions currently available:   
-compare_probes   
-dosage_to_ACGT   
-call_specs   
+**Below are the list of functions currently available:**      
+
+   'compare_probes'      
+   'dosage_to_ACGT'     
+   'call_specs'     
 
 
 
-## compare_probes
-This function "compare_probes" takes as the input file the .dat long form file that fitPoly produces. However, on the WagRhSNP 68K SNP array, each marker is probed twice (forward and reverse strand). fitPoly scores all these probes as independent markers so we need to compare the probes. This function looks at each marker by looking at the genotype calls at each of the two probes for that given marker. The result of this function prints two new files, a compared_calls.csv file and a compared_calls_kind_counts.csv. 
+## 'compare_probes'
+This function 'compare_probes' takes as the input file the .dat long form file that fitPoly produces. However, on the WagRhSNP 68K SNP array, each marker is probed twice (forward and reverse strand). fitPoly scores all these probes as independent markers so we need to compare the probes. This function looks at each marker by looking at the genotype calls at each of the two probes for that given marker. The result of this function prints two new files, a compared_calls.csv file and a compared_calls_kind_counts.csv. 
 
 This function takes a very long time. If you set progress=T or by default it is T, it will tell you which step it is on. Steps 1-3 are just background steps to start the comparison.  The steps comparing_probes and Marker_stats take a while longer and when the function is done it will print "FINISHED" in the console. Depending on speed of computer can take a couple of hours to finish. There are a Total of 5 automated steps with Marker_stats being the last step.
 
@@ -40,12 +41,12 @@ This function takes a very long time. If you set progress=T or by default it is 
 compare_probes(data_dat="path_to_file.dat", progress=T)
 ```
 
-## dosage_to_ACGT
-This function "dosage_to_ACGT" requires a csv file returned from fitPoly formatted like below (left) and converts it to what you see on the right. The A allele is the "reference" allele and the B allele is the alternative allele and dosage is defined as the number of copies of the alternative allele.
+## 'dosage_to_ACGT'
+This function 'dosage_to_ACGT' requires a csv file returned from fitPoly formatted like below (left) and converts it to what you see on the right. The A allele is the "reference" allele and the B allele is the alternative allele and dosage is defined as the number of copies of the alternative allele.
 
 This is how to use the function. Be aware, this function was written as a loop inside of a loop with 5 ifelse statements thus on large files with many individuals it will take a long time. However there the console will print the marker number it is currently on to give you an estimate to the amount of time left. Default for progress is TRUE however if progress is set at F it will not print the markers completed and will only print a message of "FINISHED" when done. 
 
-IMPORTANT: if you leave the separator argument blank, then a the output will not have any sort of delimiter between the characters i.e. a dosage of "1" with reference allele "A" and alternative allele "C" will return the value AAAC however if you designate the separator argument with any character, the output will use that to separate the alleles. For example if you used the same example above and you chose a separator = "|" then the result will be A|A|A|C instead of AAAC. The default is no separator.
+**IMPORTANT:** if you leave the separator argument blank, then a the output will not have any sort of delimiter between the characters i.e. a dosage of "1" with reference allele "A" and alternative allele "C" will return the value AAAC however if you designate the separator argument with any character, the output will use that to separate the alleles. For example if you used the same example above and you chose a separator = "|" then the result will be A|A|A|C instead of AAAC. The default is no separator.
 
 ```{r eval=FALSE, include=T}
 dosage_to_ACGT(dosage.file="path_to_dosage_file.csv", progress=T, separator = "")
@@ -56,7 +57,7 @@ dosage_to_ACGT(dosage.file="path_to_dosage_file.csv", progress=T, separator = ""
 
 ![image of input file and output file formats with separator="|"](C:/Users/Jeekin/Dropbox/Projects/R_Packages/Dosage_to_ACGT/DoseToACGT/Screenshot 2021-04-23 104929.png)
 
-## call_specs
+## 'call_specs'
 This function uses an output file of the function 'compare_probes' it uses the compared_calls_kind_counts.csv file to count what percentage of the calls are called by two probes, one probe, different probes, or not called. 
 
 ```{r eval=FALSE, include=T}
