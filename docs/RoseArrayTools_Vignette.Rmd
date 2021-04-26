@@ -63,10 +63,10 @@ This function uses an output file of the function 'compare_probes' it uses the c
 ```{r eval=FALSE, include=T}
 call_specs(kind_counts_file = "compared_calls_kinds.csv")
 ```
-Running the above function results in the output below. The script counts the number of  "S" "O" "D" and NA are in the entire matrix
+Running the above function results in the output below. The script counts the number of  "S" "O" "D" and NA are in the entire matrix. The script will print a percentage and an estimate of number of markers in each group. both these numbers are approximations as it counts the number of "S" "O" "D" and NA are in the entire matrix and divides by total number of rows x columns in the matrix. 
 ```{r eval=FALSE, include=T}
-[1] "percent______same 0.109028854404337"
-[1] "percent_______one 0.359272009497065"
-[1] "percent_different 0.0783920744846818"
-[1] "percent________NA 0.453307061613916"
+[1] "percent______same 0.109028854404337 7455"
+[1] "percent_______one 0.359272009497065 24564"
+[1] "percent_different 0.0783920744846818 5360"
+[1] "percent________NA 0.453307061613916 30994"
 ```

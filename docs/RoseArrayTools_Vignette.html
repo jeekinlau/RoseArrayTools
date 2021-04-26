@@ -1549,11 +1549,11 @@ devtools::install_github(&quot;jeekinlau/RoseArrayTools&quot;)</code></pre>
 <h2>‘call_specs’</h2>
 <p>This function uses an output file of the function ‘compare_probes’ it uses the compared_calls_kind_counts.csv file to count what percentage of the calls are called by two probes, one probe, different probes, or not called.</p>
 <pre class="r"><code>call_specs(kind_counts_file = &quot;compared_calls_kinds.csv&quot;)</code></pre>
-<p>Running the above function results in the output below. The script counts the number of “S” “O” “D” and NA are in the entire matrix</p>
-<pre class="r"><code>[1] &quot;percent______same 0.109028854404337&quot;
-[1] &quot;percent_______one 0.359272009497065&quot;
-[1] &quot;percent_different 0.0783920744846818&quot;
-[1] &quot;percent________NA 0.453307061613916&quot;</code></pre>
+<p>Running the above function results in the output below. The script counts the number of “S” “O” “D” and NA are in the entire matrix. The script will print a percentage and an estimate of number of markers in each group. both these numbers are approximations as it counts the number of “S” “O” “D” and NA are in the entire matrix and divides by total number of rows x columns in the matrix.</p>
+<pre class="r"><code>[1] &quot;percent______same 0.109028854404337 7455&quot;
+[1] &quot;percent_______one 0.359272009497065 24564&quot;
+[1] &quot;percent_different 0.0783920744846818 5360&quot;
+[1] &quot;percent________NA 0.453307061613916 30994&quot;</code></pre>
 </div>
 </div>
 
