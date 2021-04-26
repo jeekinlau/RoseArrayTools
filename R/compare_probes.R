@@ -122,8 +122,8 @@ call_specs<-function(kind_counts_file){
   percent_different<-sum(kinds_of_calls=="D",na.rm = T)/(nrow(kinds_of_calls)*(ncol(kinds_of_calls)-1))
   percent_NA<-sum(is.na(kinds_of_calls))/(nrow(kinds_of_calls)*(ncol(kinds_of_calls)-1))
 
-  print(paste("percent______same",percent_same, percent_same*nrow(kinds_of_calls)))
-  print(paste("percent_______one",percent_one, percent_one*nrow(kinds_of_calls)))
-  print(paste("percent_different",percent_different, percent_different*nrow(kinds_of_calls)))
-  print(paste("percent________NA",percent_NA, percent_NA*nrow(kinds_of_calls)))
+  print(paste("percent______same",percent_same, round((percent_same*nrow(kinds_of_calls)),digits = 0)))
+  print(paste("percent_______one",percent_one, round((percent_one*nrow(kinds_of_calls)),digits = 0)))
+  print(paste("percent_different",percent_different, round((percent_different*nrow(kinds_of_calls)),digits=0)))
+  print(paste("percent________NA",percent_NA, round((percent_NA*nrow(kinds_of_calls)),digits = 0)))
 }
