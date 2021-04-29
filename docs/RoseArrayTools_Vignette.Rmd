@@ -61,12 +61,15 @@ dosage_to_ACGT(dosage.file="path_to_dosage_file.csv", progress=T, separator = ""
 This function uses an output file of the function 'compare_probes' it uses the compared_calls_kind_counts.csv file to count what percentage of the calls are called by two probes, one probe, different probes, or not called. 
 
 ```{r eval=FALSE, include=T}
-call_specs(kind_counts_file = "compared_calls_kinds.csv")
+call_specs(kind_counts_file = "compared_calls_kinds.csv", select_genotypes=NULL)
 ```
 Running the above function results in the output below. The script counts the number of  "S" "O" "D" and NA are in the entire matrix. The script will print a percentage and an estimate of number of markers in each group. both these numbers are approximations as it counts the number of "S" "O" "D" and NA are in the entire matrix and divides by total number of rows x columns in the matrix. 
+
+By default, select_genotypes is NULL which counts and displays the specs of all the genotypes in the file provided. If a .csv file is provided with the genotype's names only those will be selected to be counted.
 ```{r eval=FALSE, include=T}
 [1] "percent______same 0.109028854404337 7455"
 [1] "percent_______one 0.359272009497065 24564"
 [1] "percent_different 0.0783920744846818 5360"
 [1] "percent________NA 0.453307061613916 30994"
 ```
+
