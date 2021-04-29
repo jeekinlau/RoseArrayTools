@@ -73,3 +73,4 @@ By default, select_genotypes is NULL which counts and displays the specs of all 
 [1] "percent________NA 0.453307061613916 30994"
 ```
 
+![image of select_genotypes input file ](C:/Users/Jeekin/Dropbox/Projects/R_Packages/Dosage_to_ACGT/DoseToACGT/Screenshot 2021-04-29 111127.png)
