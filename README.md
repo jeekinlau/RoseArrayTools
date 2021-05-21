@@ -4,6 +4,8 @@ This package will be a collection of tools that are routinely used by Texas A&M 
 To download this package in R or Rstudio, use the following lines of code:
 
 ```
+install.packages('data.table')
+install.packages('splitstackshape')
 install.packages('devtools')
 devtools::install_github("jeekinlau/RoseArrayTools")
 ```
