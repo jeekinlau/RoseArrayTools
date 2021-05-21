@@ -11,5 +11,5 @@ install.packages('splitstackshape')
 install.packages('devtools')
 devtools::install_github("jeekinlau/RoseArrayTools")
 ```
-Use the link to the Vignette below for the functions included in this package.
+Use the link to the Vignette below for the functions included in this package.      
 *[Link to Vignette](https://jeekinlau.github.io/RoseArrayTools/RoseArrayTools_Vignette.html)
