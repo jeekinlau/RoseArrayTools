@@ -28,7 +28,8 @@ devtools::install_github("jeekinlau/RoseArrayTools")
 
    'compare_probes'      
    'dosage_to_ACGT'     
-   'call_specs'     
+   'call_specs'    
+   'polyorigin_imputation'
 
 
 
@@ -74,3 +75,18 @@ By default, select_genotypes is NULL which counts and displays the specs of all 
 ```
 
 ![image of select_genotypes input file ](C:/Users/Jeekin/Dropbox/Projects/R_Packages/Dosage_to_ACGT/DoseToACGT/Screenshot 2021-04-29 111127.png)
+
+
+## 'polyoroigin_imputation'
+This function takes the polyorigin postdoseprob.csv output which contains conditional probabilities and outputs a csv with the imputed dosages.
+For this script function you must provide input.file name, number.parents, ploidy, probability.    
+input.file - should be the name of the .csv file you want to convert      
+num.parents - number of parents in the .csv file
+ploidy - ploidy number as an integer
+probability - probability you want to use as a cutoff
+
+```{r eval=FALSE, include=T}
+polyorigin_imputation(input.file = "example.csv", number.parents = 3, ploidy = 2, probability = 0.9)
+```
+
+![input and output files ](C:/Users/Jeekin/Dropbox/Projects/R_Packages/Screenshot 2021-05-21 100729.png)
