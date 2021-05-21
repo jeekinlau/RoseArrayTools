@@ -29,7 +29,7 @@ polyorigin_imputation<-function(input.file, number.parents, ploidy, probability)
   for(i in 1:num.markers){
     for(j in 1:num.ind){
       for(k in 1:dosage.classes){
-        data.array[i,j,1:dosage.classes]<-as.vector(data.split[i,(3*j-2):(3*j)])
+        data.array[i,j,1:dosage.classes]<-as.vector(data.split[i,(dosage.classes*j-ploidy):(dosage.classes*j)])
       }}}
 
   imputed.matrix<-matrix(NA,num.markers,num.ind)
@@ -42,6 +42,6 @@ polyorigin_imputation<-function(input.file, number.parents, ploidy, probability)
   colnames(imputed.matrix)<-colnames(data)
   rownames(imputed.matrix)<-rownames(data)
 
-  final<-cbind(data_original[,1:5],imputed.matrix)
+  final<-cbind(data_original[,1:number.parents+2],imputed.matrix)
   write.csv(final,paste0(file.name,"imputed.csv"))
 }
