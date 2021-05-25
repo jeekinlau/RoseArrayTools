@@ -42,6 +42,6 @@ polyorigin_imputation<-function(input.file, number.parents, ploidy, probability)
   colnames(imputed.matrix)<-colnames(data)
   rownames(imputed.matrix)<-rownames(data)
 
-  final<-cbind(data_original[,1:number.parents+2],imputed.matrix)
+  final<-cbind(data_original[,1:(number.parents+2)],imputed.matrix)
   write.csv(final,paste0(file.name,"imputed.csv"))
 }
