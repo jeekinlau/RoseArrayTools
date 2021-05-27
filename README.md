@@ -2,8 +2,7 @@
 This package will be a collection of tools that are routinely used by Texas A&M University Rose Breeding Program for analysis of genetic data from the WagRhSNP68k SNP array
      
 To download this package in R or Rstudio, use the following lines of code:          
- 
-The R-package "devtools" is used to install "RoseArrayTools" from Github        
+     
 		 
 ```
 install.packages('devtools')
