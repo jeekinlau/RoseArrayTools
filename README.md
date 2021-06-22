@@ -1,6 +1,8 @@
 # Introduction
 This package will be a collection of tools that are routinely used by Texas A&M University Rose Breeding Program for analysis of genetic data from the WagRhSNP68k SNP array
-     
+
+**IMPORTANT:** Must have internet connection for some of the functions as some functions need annotation files that are hosted online.    
+   
 To download this package in R or Rstudio, use the following lines of code:          
      
 		 
