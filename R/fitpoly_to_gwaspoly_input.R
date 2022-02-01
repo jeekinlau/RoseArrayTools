@@ -18,7 +18,7 @@ fitPoly_to_GWASpoly_input <- function(input_file){
   final_colnames <- colnames(final)
   final_colnames[1:3] = c("Marker", "Chrom", "Position")
   colnames(final) = final_colnames
-  final = final[order(final$LG, final$Position),]
+  final = final[order(final$Chrom, final$Position),]
   write.csv(final,paste0(input_file_name,"_GWAS_ready.csv"),row.names = F)
   print("done")
 }
