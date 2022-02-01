@@ -4,7 +4,7 @@ fitPoly_to_MAPpoly_input<-function(input_file, p1, p2){
 
 input_file_name = gsub(".csv","",input_file)
 file = read.csv(input_file)
-genomic_pos = read.table("https://raw.githubusercontent.com/jeekinlau/RoseArrayTools/add_fitpoly_to_mappoly_format_funtionality/docs/for_add_genomic_positions_saintoyant.txt", header = T, sep="\t")
+genomic_pos = read.table("https://raw.githubusercontent.com/jeekinlau/RoseArrayTools/master/docs/for_add_genomic_positions_saintoyant.txt", header = T, sep="\t")
 
 temp_names = names(file)
 temp_names[1] = "Marker"
