@@ -324,7 +324,7 @@ devtools::install_github(&quot;jeekinlau/RoseArrayTools&quot;)</code></pre>
 </div>
 <div id="fitpoly_to_mappoly_input" class="section level2">
 <h2>‘fitPoly_to_MAPpoly_input’</h2>
-<p>This function takes the output of fitPoly and converts it into an input ready to be used by MAPpoly. This function also includes the genome positions of the WagRhSNP 68K array aligned to the Old Blush reference genome v1.0(Oyant et al., 2008).<br />
+<p>This function takes the output of fitPoly after the “compare_probes” function and converts it into an input ready to be used by MAPpoly. This function also includes the genome positions of the WagRhSNP 68K array aligned to the Old Blush reference genome v1.0(Oyant et al., 2008).<br />
 NOTE: This function must have internet connection as a reference file is needed to place the genome LG and positions.<br />
 <a href="https://cran.r-project.org/web/packages/mappoly/index.html">Link to MAPpoly on CRAN (Stable)</a><br />
 <a href="https://github.com/mmollina/MAPpoly">Link to MAPpoly on Github (Experimental)</a></p>
@@ -336,7 +336,7 @@ NOTE: This function must have internet connection as a reference file is needed 
 </div>
 <div id="fitpoly_to_gwaspoly_input" class="section level2">
 <h2>‘fitPoly_to_GWASpoly_input’</h2>
-<p>This function takes the output of fitPoly and converts it into an input ready to be used by GWASpoly. This function also includes the genome positions of the WagRhSNP 68K array aligned to the Old Blush reference genome v1.0(Oyant et al., 2008).<br />
+<p>This function takes the output of fitPoly after the “compare_probes” function and and converts it into an input ready to be used by GWASpoly. This function also includes the genome positions of the WagRhSNP 68K array aligned to the Old Blush reference genome v1.0(Oyant et al., 2008).<br />
 NOTE: This function must have internet connection as a reference file is needed to place the genome LG and positions.<br />
 <a href="https://github.com/jendelman/GWASpoly">Link to GWASpoly on Github</a></p>
 <pre class="r"><code>fitPoly_to_GWASpoly_input(input_file=&quot;input_file_name.csv&quot;)</code></pre>
