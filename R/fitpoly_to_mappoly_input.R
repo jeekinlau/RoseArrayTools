@@ -1,4 +1,6 @@
-input_file = "96_SWxBE_scores_compared_calls.csv"
+
+fitPoly_to_MAPpoly_input<-function(input_file, p1, p2){
+
 
 input_file_name = gsub(".csv","",input_file)
 file = read.csv(input_file)
@@ -9,8 +11,6 @@ temp_names[1] = "Marker"
 
 colnames(file) = temp_names
 
-p1= "Brite_Eyes_8"
-p2= "Stormy_Weather_3"
 
 merged = merge(file,genomic_pos, by="Marker", all=T)
 
@@ -29,3 +29,5 @@ final = final[-which(is.na(final$P1)),]
 final = final[-which(is.na(final$P2)),]
 
 write.csv(final,paste0(input_file_name,"_mappoly_ready.csv"),row.names = F)
+print("done")
+}
