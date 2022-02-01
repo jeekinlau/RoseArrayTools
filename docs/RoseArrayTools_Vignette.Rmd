@@ -30,7 +30,8 @@ devtools::install_github("jeekinlau/RoseArrayTools")
    'dosage_to_ACGT'     
    'call_specs'    
    'polyorigin_imputation'         
-   'fitPoly_to_MAPpoly_input'
+   'fitPoly_to_MAPpoly_input'       
+   'fitPoly_to_GWASpoly_input'
 
 
 
@@ -111,7 +112,9 @@ Below is a picture of what the data looks like before and after conversion on a 
 
 ## 'fitPoly_to_MAPpoly_input'
 This function takes the output of fitPoly and converts it into an input ready to be used by MAPpoly. This function also includes the genome positions of the WagRhSNP 68K array aligned to the Old Blush reference genome v1.0(Oyant et al., 2008).            
-NOTE: This fuction must have internet connection as a reference file is needed to place the genome LG and positions.
+NOTE: This function must have internet connection as a reference file is needed to place the genome LG and positions.   
+[Link to MAPpoly on CRAN (Stable)](https://cran.r-project.org/web/packages/mappoly/index.html)      
+[Link to MAPpoly on Github (Experimental)](https://github.com/mmollina/MAPpoly)
 
 
 ```{r eval=FALSE, include=T}
@@ -119,3 +122,16 @@ fitPoly_to_MAPpoly_input(input_file="input_file_name.csv", p1="parent1", p2="par
 ```
 
 ![input and output files](C:/Users/jeeki/Dropbox/Projects/R_Packages/fitpoly_to_mappoly_ready.png)
+
+
+
+## 'fitPoly_to_GWASpoly_input'
+This function takes the output of fitPoly and converts it into an input ready to be used by GWASpoly. This function also includes the genome positions of the WagRhSNP 68K array aligned to the Old Blush reference genome v1.0(Oyant et al., 2008).            
+NOTE: This function must have internet connection as a reference file is needed to place the genome LG and positions.     
+[Link to GWASpoly on Github](https://github.com/jendelman/GWASpoly)    
+```{r eval=FALSE, include=T}
+fitPoly_to_GWASpoly_input(input_file="input_file_name.csv")
+```
+
+![Input and output files](C:/Users/jeeki/Dropbox/Projects/R_Packages/fitpoly_to_GWASpoly.png)
+
