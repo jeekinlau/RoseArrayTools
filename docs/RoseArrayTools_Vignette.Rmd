@@ -29,7 +29,8 @@ devtools::install_github("jeekinlau/RoseArrayTools")
    'compare_probes'      
    'dosage_to_ACGT'     
    'call_specs'    
-   'polyorigin_imputation'
+   'polyorigin_imputation'         
+   'fitPoly_to_MAPpoly_input'
 
 
 
@@ -62,9 +63,9 @@ dosage_to_ACGT(dosage.file="path_to_dosage_file.csv", progress=T, separator = ""
 ```
 
 
-![image of input file and output file formats no separator](C:/Users/Jeekin/Dropbox/Projects/R_Packages/Dosage_to_ACGT/DoseToACGT/Screenshot 2021-04-02 151131.png)
+![image of input file and output file formats no separator](C:/Users/Jeeki/Dropbox/Projects/R_Packages/Dosage_to_ACGT/DoseToACGT/Screenshot 2021-04-02 151131.png)
 
-![image of input file and output file formats with separator="|"](C:/Users/Jeekin/Dropbox/Projects/R_Packages/Dosage_to_ACGT/DoseToACGT/Screenshot 2021-04-23 104929.png)
+![image of input file and output file formats with separator="|"](C:/Users/Jeeki/Dropbox/Projects/R_Packages/Dosage_to_ACGT/DoseToACGT/Screenshot 2021-04-23 104929.png)
 
 ## 'call_specs'
 This function uses an output file of the function 'compare_probes' it uses the compared_calls_kind_counts.csv file to count what percentage of the calls are called by two probes, one probe, different probes, or not called. 
@@ -82,7 +83,7 @@ By default, select_genotypes is NULL which counts and displays the specs of all 
 [1] "percent________NA 0.453307061613916 30994"
 ```
 
-![image of select_genotypes input file ](C:/Users/Jeekin/Dropbox/Projects/R_Packages/Dosage_to_ACGT/DoseToACGT/Screenshot 2021-04-29 111127.png)
+![image of select_genotypes input file ](C:/Users/Jeeki/Dropbox/Projects/R_Packages/Dosage_to_ACGT/DoseToACGT/Screenshot 2021-04-29 111127.png)
 
 
 ## 'polyoroigin_imputation'
@@ -106,4 +107,15 @@ For this script function you must provide input.file name, number.parents, ploid
 polyorigin_imputation(input.file = "example.csv", number.parents = 3, ploidy = 2, probability = 0.9)
 ```
 Below is a picture of what the data looks like before and after conversion on a diploid dataset. Tetraploid datasets will have 5 dosage classes.
-![input and output files ](C:/Users/Jeekin/Dropbox/Projects/R_Packages/Screenshot 2021-05-21 100729.png)
+![input and output files ](C:/Users/Jeeki/Dropbox/Projects/R_Packages/Screenshot 2021-05-21 100729.png)
+
+## 'fitPoly_to_MAPpoly_input'
+This function takes the output of fitPoly and converts it into an input ready to be used by MAPpoly. This function also includes the genome positions of the WagRhSNP 68K array aligned to the Old Blush reference genome v1.0(Oyant et al., 2008).            
+NOTE: This fuction must have internet connection as a reference file is needed to place the genome LG and positions.
+
+
+```{r eval=FALSE, include=T}
+fitPoly_to_MAPpoly_input(input_file="input_file_name.csv", p1="parent1", p2="parent2")
+```
+
+![input and output files](C:/Users/jeeki/Dropbox/Projects/R_Packages/fitpoly_to_mappoly_ready.png)
