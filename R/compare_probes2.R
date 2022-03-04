@@ -1,6 +1,8 @@
-#
-#
-#
+#' Takes *score.dat output from fitpoly and compares the probes and outputs a CSV with consensus
+#' @param data_dat a text file with the end *score.dat that has the genotypic dosage call output from fitPoly
+#' @param progress if \code{TRUE} progress shown in console; if \code{FALSE}, no output produced
+#' @return Two CSV files. One has the consensus dosage call, other has description of the call. S = same, D = different, O = one, NA = not called
+#' @author Jeekin Lau, \email{jeekinlau@gmail.com}
 #  The input file is the long form .dat file as output of fitPoly
 #
 #
