@@ -20,7 +20,7 @@ fitPoly_to_polyOrigin_input<-function(input_file){
   final_colnames[1:3] = c("marker",  "chromosome", "position")
   colnames(final) = final_colnames
   
-  final = final[order(final$LG, final$Position),]
+  final = final[order(final$chromosome, final$position),]
 
   
   write.csv(final,paste0(input_file_name,"_polyOrigin_ready.csv"),row.names = F)
