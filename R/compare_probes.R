@@ -6,7 +6,8 @@
 #
 #
 #
-
+data_dat = "SWxBE_BExMG_v3_scores.dat"
+progress=NULL
 
 compare_probes<-function(data_dat,progress=NULL){
   if(is.null(progress)){progress<-T}

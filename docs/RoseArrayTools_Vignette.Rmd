@@ -26,6 +26,7 @@ devtools::install_github("jeekinlau/RoseArrayTools")
 # Functions
 **Below are the list of functions currently available:**      
 
+   'compare_probes2'
    'compare_probes'      
    'dosage_to_ACGT'     
    'call_specs'    
@@ -33,12 +34,22 @@ devtools::install_github("jeekinlau/RoseArrayTools")
    'fitPoly_to_MAPpoly_input'       
    'fitPoly_to_GWASpoly_input'
 
+## 'compare_probes2'      
+**IMPORTANT** this package needs both the R-package "data.table" and internet access.     
+```{r eval=FALSE, include=T}
+compare_probes2(data_dat="path_to_file.dat", progress=T)
+```
+
+The input file format is the same as compare_probes function. Only need to input the scores.dat file from fitPoly. The function has been updated to use indexing instead of loops thus around 20X faster than the first version. Also a bug was found where incorrect probes were sometimes being compared.
 
 
-## 'compare_probes'
+## 'compare_probes' (DEFUNCT DO NOT USE)
+
+**IMPORTANT** this function is now defunct. The ideas behind the description are still valid. However there is a small error that introduces a big error. Please use the compare_probes2 function. Function is still here just for documentation.
+
 This function 'compare_probes' takes as the input file the .dat long form file that fitPoly produces. However, on the WagRhSNP 68K SNP array, each marker is probed twice (forward and reverse strand). fitPoly scores all these probes as independent markers so we need to compare the probes. This function looks at each marker by looking at the genotype calls at each of the two probes for that given marker. The result of this function prints two new files, a compared_calls.csv file and a compared_calls_kind_counts.csv. 
        
-**IMPORTANT**: For this funtion to work properly must have the R-package "data.table" installed
+**IMPORTANT**: For this function to work properly must have the R-package "data.table" installed
 
 ```{r eval=FALSE, include=T}
 install.packages('data.table')
