@@ -13,10 +13,12 @@ devtools::install_github("jeekinlau/RoseArrayTools")
       
      
 For R-package to run correctly, you must also install the R-packages: "data.table", "splitstackshape"     	 
-The two dependencies below should install automatically using the two lines of code above but in case it does not install them manually.
+The two dependencies below should install automatically using the two lines of code above but in case it does not install them manually.    
+    
 ```
 install.packages('data.table')
 install.packages('splitstackshape')
-```
+```       
+    
 Use the link to the Vignette below for the functions included in this package.      
 *[Link to Vignette](https://jeekinlau.github.io/RoseArrayTools/RoseArrayTools_Vignette.html)
