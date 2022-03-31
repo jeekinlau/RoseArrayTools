@@ -1,0 +1,149 @@
+#
+#
+#
+#  The input file is the long form .dat file as output of fitPoly
+#
+#
+#
+# this function is now defunct
+
+
+compare_probes_defunct<-function(data_dat,progress=NULL){
+  if(is.null(progress)){progress<-T}
+  data_dat_name<-gsub(".dat","_",data_dat)
+  library(data.table)
+  calls<- as.matrix(fread(data_dat, select = c(1:3,12)))
+  header_calls<-calls[1:1000,1:ncol(calls)]
+
+  ind_unique<-unique(calls[,3])
+  num_ind<-as.numeric(length(ind_unique))
+  ind<-calls[1:num_ind,3]
+  num_markers<-nrow(calls)/num_ind
+
+  markers<-matrix(,num_markers,1)
+  colnames(markers)<-"Probes_ID"
+
+  for (i in 1:nrow(markers)){
+    markers[i,1]<-calls[i*num_ind,2]
+    if(progress==T){print(paste0("step_1_",i))}
+  }
+
+
+  genocalls<-matrix(, num_markers, num_ind+1)
+  colnames(genocalls)<-c("Probes_ID",ind)
+  genocalls[,1]<-markers
+
+  stringcall<-calls[,4]
+
+  genocalls<-t(genocalls)
+  genocalls[2:nrow(genocalls),1:ncol(genocalls)]<-stringcall
+  genocalls<-t(genocalls)
+
+
+  genocall_order<-as.matrix(read.csv("https://raw.githubusercontent.com/jeekinlau/RoseArrayTools/master/docs/array_snps_flanking_order.csv"))
+
+  marker_col<-matrix(,nrow(genocalls),1)
+  genocalls2<-cbind(marker_col,genocalls)
+
+  for (a in 1:nrow(genocalls2)){
+    probe<-genocalls2[a,2]
+    genocalls2[a,1]<-genocall_order[which(genocall_order[,1]==probe),2]
+    if(progress==T){print(paste0("step_2_",a))}
+  }
+
+  genocalls3<-genocalls2[order(genocalls2[,1]),]
+
+  genocalls<-genocalls3
+
+  compare_probes<-array(,dim=c(nrow(genocalls)/2,ncol(genocalls),2))
+
+  for (j in 1:nrow(compare_probes)){
+    for (k in 1:ncol(compare_probes)){
+      compare_probes[j,k,1]<-genocalls[j*2-1,k]
+      compare_probes[j,k,2]<-genocalls[j*2,k]
+    }
+    if(progress==T){print(paste0("step_3_",j))}
+  }
+
+  compared_calls<-matrix(,nrow(compare_probes),ncol(compare_probes))
+
+  compare_probes[is.na(compare_probes)]<-9
+
+  for (l in 1:nrow(compared_calls)){
+    for(m in 1:ncol(compared_calls)){
+      p1<-compare_probes[l,m,1]
+      p2<-compare_probes[l,m,2]
+
+      ifelse(p1!=9 & p2!=9 & p1==p2, compared_calls[l,m]<-p1,
+             ifelse(p1==9 & p2==9, compared_calls[l,m]<-NA,
+                    ifelse(p1==9 & p2!=9,compared_calls[l,m]<-p2,
+                           ifelse(p1!=9 & p2==9,compared_calls[l,m]<-p1,
+                                  ifelse(p1!=9 & p2!=9 & p1 != p2, compared_calls[l,m]<-NA,
+                                         NA)))))
+    }
+    if(progress==T){print(paste0("comparing_probes_",l))}}
+
+
+  for (b in 1:nrow(compared_calls)){
+    compared_calls[b,1]<-genocalls3[b*2-1,1]
+    print(b)
+  }
+
+  colnames(compared_calls)<-colnames(genocalls3)
+
+  write.csv(compared_calls[,-2], paste0(data_dat_name,"compared_calls.csv"), row.names = F)
+
+  compared_calls<-matrix(,nrow(compare_probes),ncol(compare_probes))
+  for (l in 1:nrow(compared_calls)){
+    for(m in 1:ncol(compared_calls)){
+      p1<-compare_probes[l,m,1]
+      p2<-compare_probes[l,m,2]
+
+      ifelse(p1!=9 & p2!=9 & p1==p2, compared_calls[l,m]<-"S",
+             ifelse(p1==9 & p2==9, compared_calls[l,m]<-NA,
+                    ifelse(p1==9 & p2!=9,compared_calls[l,m]<-"O",
+                           ifelse(p1!=9 & p2==9,compared_calls[l,m]<-"O",
+                                  ifelse(p1!=9 & p2!=9 & p1 != p2, compared_calls[l,m]<-"D",
+                                         NA)))))
+
+    }
+    if(progress==T){print(paste0("Marker_stats_",l))}}
+  colnames(compared_calls)<-colnames(genocalls3)
+  compared_calls[,1]<-compare_probes[,1,1]
+  write.csv(compared_calls[,-2], paste0(data_dat_name,"compared_calls_kind_counts.csv"),row.names = F)
+  print("FINISHED")
+}
+
+
+
+
+call_specs<-function(kind_counts_file, select_genotypes=NULL){
+  if(is.null(select_genotypes)){
+    kinds_of_calls<-as.matrix(read.csv(kind_counts_file,header = T,row.names = 1))
+    percent_same<-sum(kinds_of_calls=="S",na.rm = T)/(nrow(kinds_of_calls)*(ncol(kinds_of_calls)))
+    percent_one<-sum(kinds_of_calls=="O",na.rm = T)/(nrow(kinds_of_calls)*(ncol(kinds_of_calls)))
+    percent_different<-sum(kinds_of_calls=="D",na.rm = T)/(nrow(kinds_of_calls)*(ncol(kinds_of_calls)))
+    percent_NA<-sum(is.na(kinds_of_calls))/(nrow(kinds_of_calls)*(ncol(kinds_of_calls)))
+
+    print(paste("percent______same",percent_same, round((percent_same*nrow(kinds_of_calls)),digits = 0)))
+    print(paste("percent_______one",percent_one, round((percent_one*nrow(kinds_of_calls)),digits = 0)))
+    print(paste("percent_different",percent_different, round((percent_different*nrow(kinds_of_calls)),digits=0)))
+    print(paste("percent________NA",percent_NA, round((percent_NA*nrow(kinds_of_calls)),digits = 0)))}
+
+
+ else{
+  genotypes<-read.csv(select_genotypes,header = F)
+  genotypes<-as.character(genotypes[,1])
+  genotypes<-gsub("-",".",genotypes)
+  kinds_of_calls<-as.matrix(read.csv(kind_counts_file,header = T,row.names = 1))
+  kinds_of_calls<-kinds_of_calls[,colnames(kinds_of_calls)%in%genotypes]
+  percent_same<-sum(kinds_of_calls=="S",na.rm = T)/(nrow(kinds_of_calls)*(ncol(kinds_of_calls)))
+  percent_one<-sum(kinds_of_calls=="O",na.rm = T)/(nrow(kinds_of_calls)*(ncol(kinds_of_calls)))
+  percent_different<-sum(kinds_of_calls=="D",na.rm = T)/(nrow(kinds_of_calls)*(ncol(kinds_of_calls)))
+  percent_NA<-sum(is.na(kinds_of_calls))/(nrow(kinds_of_calls)*(ncol(kinds_of_calls)))
+
+  print(paste("percent______same",percent_same, round((percent_same*nrow(kinds_of_calls)),digits = 0)))
+  print(paste("percent_______one",percent_one, round((percent_one*nrow(kinds_of_calls)),digits = 0)))
+  print(paste("percent_different",percent_different, round((percent_different*nrow(kinds_of_calls)),digits=0)))
+  print(paste("percent________NA",percent_NA, round((percent_NA*nrow(kinds_of_calls)),digits = 0)))}
+}
