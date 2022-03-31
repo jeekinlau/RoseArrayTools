@@ -75,9 +75,30 @@ dosage_to_ACGT2<- function(dosage.file, progress=NULL, separator=NULL){
   print("FINISHED")
 }
 
+dosage.file="13plates_newest_scores_compared_calls_v2.csv"
+progress=NULL
+separator=NULL
+
+dosage_to_ACGT2<- function(dosage.file, progress=NULL, separator=NULL){
+  if(is.null(progress)){progress<-T}
+  if(is.null(separator)){separator<-""}
+  dosage_file_name<-gsub(".csv","_",dosage.file)
+  dosage<-(read.csv(dosage.file, header = T, sep = ","))
+  names(dosage)[1]<-"Affy.SNP.ID"
+  annotation<-read.csv('https://raw.githubusercontent.com/jeekinlau/test_package/master/docs/WagRhSNP68k_annotation_condensed.csv')
+  data<-merge(annotation,dosage, by="Affy.SNP.ID")
+  data = as.matrix(data)
+
+  data<-apply(data,MARGIN=1,function(y) gsub(0, paste0(data[,2],separator,data[,2],separator,data[,2],separator,data[,2]),y))
+  data<-apply(data,MARGIN=1,gsub(1, paste0(data[a,2],separator,data[a,2],separator,data[a,2],separator,data[a,3]),data[a,]))
+  data<-apply(data,MARGIN=1,gsub(2, paste0(data[a,2],separator,data[a,2],separator,data[a,3],separator,data[a,3]),data[a,]))
+  data<-apply(data,MARGIN=1,gsub(3, paste0(data[a,2],separator,data[a,3],separator,data[a,3],separator,data[a,3]),data[a,]))
+  data<-apply(data,MARGIN=1,gsub(4, paste0(data[a,3],separator,data[a,3],separator,data[a,3],separator,data[a,3]),data[a,]))
 
 
-
+  write.csv(data,paste0(dosage_file_name,"converted_dosage_ACGT.csv"),row.names = F)
+  print("FINISHED")
+}
 
 
 
