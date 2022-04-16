@@ -2,7 +2,10 @@
 % Please edit documentation in R/compare_probes.R
 \name{compare_probes}
 \alias{compare_probes}
-\title{Takes *score.dat output from fitpoly and compares the probes and outputs a CSV with consensus}
+\title{Takes *score.dat output from fitpoly and compares the probes and outputs a CSV with consensus csv of both probes.
+This function needs internet access as it look for a reference file that is used to differentiate which two probes
+belong to which SNPs. The reference file is located in /doc folder (if interested which file look in the function's code).
+The input file is a file exported from fitpoly which has a extension of scores.dat and output will be two .csv files.}
 \usage{
 compare_probes(data_dat, progress = NULL)
 }
@@ -15,9 +18,13 @@ compare_probes(data_dat, progress = NULL)
 Two CSV files. One has the consensus dosage call, other has description of the call. S = same, D = different, O = one, NA = not called
 }
 \description{
-Takes *score.dat output from fitpoly and compares the probes and outputs a CSV with consensus
+Takes *score.dat output from fitpoly and compares the probes and outputs a CSV with consensus csv of both probes.
+This function needs internet access as it look for a reference file that is used to differentiate which two probes
+belong to which SNPs. The reference file is located in /doc folder (if interested which file look in the function's code).
+The input file is a file exported from fitpoly which has a extension of scores.dat and output will be two .csv files.
 }
 \author{
 Jeekin Lau, \email{jeekinlau@gmail.com}
+
  The input file is the long form .dat file as output of fitPoly
 }
