@@ -3,8 +3,8 @@
 #' @param progress if \code{TRUE} progress shown in console; if \code{FALSE}, no output produced
 #' @return Two CSV files. One has the consensus dosage call, other has description of the call. S = same, D = different, O = one, NA = not called
 #' @author Jeekin Lau, \email{jeekinlau@gmail.com}
-#  The input file is the long form .dat file as output of fitPoly
-#
+#'  The input file is the long form .dat file as output of fitPoly
+##' @export
 #
 #
 #
