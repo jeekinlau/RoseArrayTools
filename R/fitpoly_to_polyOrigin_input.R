@@ -1,3 +1,18 @@
+
+#' Function takes the output from compare_probes() and prepares it for input to use in polyOrigin
+#' Function reads in annotation files and matches the genome position of Rosa chinensis genome (Hibrand-Saint Oyant et al., 2018)
+#' NOTE: must be connected to internet to read in annotation files
+#'
+#' @param input_file is a .csv file that has the dosages and Axiom marker names. Most likely an output file of compare_probes() function
+#'
+#' @return a .csv file that has the added columns of genome position and LG of markers. Will contain markers with no known location at bottom of file.
+#'
+#' @export fitPoly_to_polyOrigin_input
+#'
+#'
+#'
+
+
 fitPoly_to_polyOrigin_input<-function(input_file){
 
 

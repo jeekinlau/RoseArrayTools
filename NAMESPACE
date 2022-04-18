@@ -2,6 +2,9 @@
 
 export(compare_probes)
 export(dosage_to_ACGT)
+export(fitPoly_to_GWASpoly_input)
+export(fitPoly_to_MAPpoly_input)
+export(fitPoly_to_polyOrigin_input)
 export(polyorigin_imputation)
 importFrom(data.table,fread)
 importFrom(splitstackshape,cSplit)

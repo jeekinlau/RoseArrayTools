@@ -1,4 +1,17 @@
 
+#' Function takes the output from compare_probes() and prepares it for input to use in MAPpoly
+#' Function reads in annotation files and matches the genome position of Rosa chinensis genome (Hibrand-Saint Oyant et al., 2018)
+#' NOTE: must be connected to internet to read in annotation files
+#'
+#' @param input_file is a .csv file that has the dosages and Axiom marker names. Most likely an output file of compare_probes() function
+#' @param p1 define parent 1 name
+#' @param p2 define parent 2 name
+#' @return a .csv file that has the added columns of genome position and LG of markers. Will contain markers with no known location at bottom of file.
+#'
+#' @export fitPoly_to_MAPpoly_input
+#'
+#'
+#'
 fitPoly_to_MAPpoly_input<-function(input_file, p1, p2){
 
 
