@@ -1,8 +1,12 @@
+#' Compares both Probes on Axiom Arrays
+#'
 #' Takes *score.dat output from fitpoly and compares the probes and outputs a CSV with consensus csv of both probes.
 #' This function needs internet access as it look for a reference file that is used to differentiate which two probes
 #' belong to which SNPs. The reference file is located in /doc folder (if interested which file look in the function's code).
 #' The input file is a file exported from fitpoly which has a extension of scores.dat and output will be two .csv files.
 #' this is the compare_probes2 function (renamed and made other clearly defunct)
+#'
+#'
 #' @param data_dat a text file with the end *score.dat that has the genotypic dosage call output from fitPoly
 #'
 #' @param progress if \code{TRUE} progress shown in console; if \code{FALSE}, no output produced default is TRUE

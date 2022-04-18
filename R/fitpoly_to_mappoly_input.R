@@ -1,4 +1,4 @@
-
+#' Prepare data for MAPpoly
 #' Function takes the output from compare_probes() and prepares it for input to use in MAPpoly
 #' Function reads in annotation files and matches the genome position of Rosa chinensis genome (Hibrand-Saint Oyant et al., 2018)
 #' NOTE: must be connected to internet to read in annotation files

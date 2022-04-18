@@ -2,7 +2,8 @@
 % Please edit documentation in R/fitpoly_to_mappoly_input.R
 \name{fitPoly_to_MAPpoly_input}
 \alias{fitPoly_to_MAPpoly_input}
-\title{Function takes the output from compare_probes() and prepares it for input to use in MAPpoly
+\title{Prepare data for MAPpoly
+Function takes the output from compare_probes() and prepares it for input to use in MAPpoly
 Function reads in annotation files and matches the genome position of Rosa chinensis genome (Hibrand-Saint Oyant et al., 2018)
 NOTE: must be connected to internet to read in annotation files}
 \usage{
@@ -19,6 +20,7 @@ fitPoly_to_MAPpoly_input(input_file, p1, p2)
 a .csv file that has the added columns of genome position and LG of markers. Will contain markers with no known location at bottom of file.
 }
 \description{
+Prepare data for MAPpoly
 Function takes the output from compare_probes() and prepares it for input to use in MAPpoly
 Function reads in annotation files and matches the genome position of Rosa chinensis genome (Hibrand-Saint Oyant et al., 2018)
 NOTE: must be connected to internet to read in annotation files
