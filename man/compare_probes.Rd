@@ -5,14 +5,15 @@
 \title{Takes *score.dat output from fitpoly and compares the probes and outputs a CSV with consensus csv of both probes.
 This function needs internet access as it look for a reference file that is used to differentiate which two probes
 belong to which SNPs. The reference file is located in /doc folder (if interested which file look in the function's code).
-The input file is a file exported from fitpoly which has a extension of scores.dat and output will be two .csv files.}
+The input file is a file exported from fitpoly which has a extension of scores.dat and output will be two .csv files.
+this is the compare_probes2 function (renamed and made other clearly defunct)}
 \usage{
 compare_probes(data_dat, progress = NULL)
 }
 \arguments{
 \item{data_dat}{a text file with the end *score.dat that has the genotypic dosage call output from fitPoly}
 
-\item{progress}{if \code{TRUE} progress shown in console; if \code{FALSE}, no output produced}
+\item{progress}{if \code{TRUE} progress shown in console; if \code{FALSE}, no output produced default is TRUE}
 }
 \value{
 Two CSV files. One has the consensus dosage call, other has description of the call. S = same, D = different, O = one, NA = not called
@@ -22,9 +23,8 @@ Takes *score.dat output from fitpoly and compares the probes and outputs a CSV w
 This function needs internet access as it look for a reference file that is used to differentiate which two probes
 belong to which SNPs. The reference file is located in /doc folder (if interested which file look in the function's code).
 The input file is a file exported from fitpoly which has a extension of scores.dat and output will be two .csv files.
+this is the compare_probes2 function (renamed and made other clearly defunct)
 }
 \author{
 Jeekin Lau, \email{jeekinlau@gmail.com}
-
- The input file is the long form .dat file as output of fitPoly
 }

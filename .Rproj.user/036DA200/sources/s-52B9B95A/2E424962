@@ -1,0 +1,26 @@
+{
+    "id": "2E424962",
+    "path": "~/GitHub/RoseArrayTools/R/polyorigin_imputation.R",
+    "project_path": "R/polyorigin_imputation.R",
+    "type": "r_source",
+    "hash": "553434653",
+    "contents": "",
+    "dirty": false,
+    "created": 1650298557288.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "6,83",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1650302810,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1650302810745,
+    "read_only": false,
+    "read_only_alternatives": []
+}
