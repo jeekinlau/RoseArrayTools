@@ -19,11 +19,11 @@ fitPoly_to_MAPpoly_input<-function(input_file, genome=NULL, p1, p2){
 input_file_name = gsub(".csv","",input_file)
 file = read.csv(input_file)
 
-if(genome=NULL){
+if(genome==NULL){
 genomic_pos = read.table("docs/for_add_genomic_positions_saintoyant.txt", header = T, sep="\t")
-}else if(genome="saintoyant"){
+}else if(genome=="saintoyant"){
     genomic_pos = read.table("docs/for_add_genomic_positions_saintoyant.txt", header = T, sep="\t")
-}else if(genome="raymond"){
+}else if(genome=="raymond"){
     genomic_pos = read.table("docs/for_add_genomic_positions_raymond.txt", header = T, sep="\t")
 }else print("please select genome")
 
