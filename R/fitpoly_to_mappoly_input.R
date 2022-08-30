@@ -20,11 +20,11 @@ input_file_name = gsub(".csv","",input_file)
 file = read.csv(input_file)
 
 if(genome==NULL){
-genomic_pos = read.table(system.file("data/for_add_genomic_positions_saintoyant.txt", package="RoseArrayTools"), header = T, sep="\t")
+genomic_pos = read.table("https://raw.githubusercontent.com/jeekinlau/RoseArrayTools/master/docs/for_add_genomic_positions_saintoyant.txt", header = T, sep="\t")
 }else if(genome=="saintoyant"){
-    genomic_pos = read.table(system.file("data/for_add_genomic_positions_saintoyant.txt"), header = T, sep="\t")
+    genomic_pos = read.table("https://raw.githubusercontent.com/jeekinlau/RoseArrayTools/master/docs/for_add_genomic_positions_saintoyant.txt", header = T, sep="\t")
 }else if(genome=="raymond"){
-    genomic_pos = read.table(system.file("data/for_add_genomic_positions_raymond.txt"), header = T, sep="\t")
+    genomic_pos = read.table"https://raw.githubusercontent.com/jeekinlau/RoseArrayTools/master/docs/for_add_genomic_positions_raymond.txt", header = T, sep="\t")
 }else print("please select genome")
 
 
