@@ -1,7 +1,7 @@
 Package: RoseArrayTools
 Type: Package
 Title: Complilation of Tools Used for WagRhSNP68K Rose Array
-Version: 0.1.3
+Version: 0.1.4
 Author: Jeekin Lau
 Maintainer: Jeekin Lau <jeekinlau@gmail.com>
 Description: This package is a complilation of tools that are used in the Texas A&M University Rose Breeding Program. Currently it contains a tool that transforms dosage data into ACGT format preserving the original SNP call.
