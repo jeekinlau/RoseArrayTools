@@ -19,7 +19,7 @@ fitPoly_to_MAPpoly_input<-function(input_file, genome=NULL, p1, p2){
 input_file_name = gsub(".csv","",input_file)
 file = read.csv(input_file)
 
-if(genome==NULL){
+if(is.null(genome)){
 genomic_pos = read.table("https://raw.githubusercontent.com/jeekinlau/RoseArrayTools/master/docs/for_add_genomic_positions_saintoyant.txt", header = T, sep="\t")
 }else if(genome=="saintoyant"){
     genomic_pos = read.table("https://raw.githubusercontent.com/jeekinlau/RoseArrayTools/master/docs/for_add_genomic_positions_saintoyant.txt", header = T, sep="\t")
