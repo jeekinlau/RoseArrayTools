@@ -4,6 +4,7 @@
 #' NOTE: must be connected to internet to read in annotation files
 #'
 #' @param input_file is a .csv file that has the dosages and Axiom marker names. Most likely an output file of compare_probes() function
+#' @param genome specifies which genome order to use "saintoyant" or "raymond" (default is "saintoyant")
 #' @param p1 define parent 1 name
 #' @param p2 define parent 2 name
 #' @return a .csv file that has the added columns of genome position and LG of markers. Will contain markers with no known location at bottom of file.
@@ -12,12 +13,20 @@
 #'
 #'
 #'
-fitPoly_to_MAPpoly_input<-function(input_file, p1, p2){
+fitPoly_to_MAPpoly_input<-function(input_file, genome=NULL, p1, p2){
 
 
 input_file_name = gsub(".csv","",input_file)
 file = read.csv(input_file)
-genomic_pos = read.table("https://raw.githubusercontent.com/jeekinlau/RoseArrayTools/master/docs/for_add_genomic_positions_saintoyant.txt", header = T, sep="\t")
+
+if(genome=NULL){
+genomic_pos = read.table("docs/for_add_genomic_positions_saintoyant.txt", header = T, sep="\t")
+}else if(genome="saintoyant"){
+    genomic_pos = read.table("docs/for_add_genomic_positions_saintoyant.txt", header = T, sep="\t")
+}else if(genome="raymond"){
+    genomic_pos = read.table("docs/for_add_genomic_positions_raymond.txt", header = T, sep="\t")
+}else print("please select genome")
+
 
 temp_names = names(file)
 temp_names[1] = "Marker"
