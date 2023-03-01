@@ -12,11 +12,11 @@
 #'
 #'
 fitPoly_add_phys_pos<-function(input_file, genome=NULL){
-  
-  
+
+
   input_file_name = gsub(".csv","",input_file)
   file = read.csv(input_file)
-  
+
   if(is.null(genome)){
     genomic_pos = read.table("https://raw.githubusercontent.com/jeekinlau/RoseArrayTools/master/docs/for_add_genomic_positions_saintoyant.txt", header = T, sep="\t")
   }else if(genome=="saintoyant"){
@@ -24,28 +24,28 @@ fitPoly_add_phys_pos<-function(input_file, genome=NULL){
   }else if(genome=="raymond"){
     genomic_pos = read.table("https://raw.githubusercontent.com/jeekinlau/RoseArrayTools/master/docs/for_add_genomic_positions_raymond.txt", header = T, sep="\t")
   }else print("please select genome")
-  
-  
+
+
   temp_names = names(file)
   temp_names[1] = "Marker"
-  
+
   colnames(file) = temp_names
-  
-  
+
+
   merged = merge(file,genomic_pos, by="Marker", all=T)
-  
 
-  
 
-  
+
+
+
   final = cbind(merged$Marker, merged$LG, merged$Position, merged[,-which(colnames(merged)%in%c("Marker","LG","Position"))])
   final_colnames <- colnames(final)
   final_colnames[1:3] = c("Marker", "LG", "Position")
   colnames(final) = final_colnames
-  
+
   final = final[order(final$LG, final$Position),]
 
-  
+
   write.csv(final,paste0(input_file_name,"_dosage_with_phys.csv"),row.names = F)
   print("done")
 }
