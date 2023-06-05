@@ -2,9 +2,13 @@
 
 export(compare_probes)
 export(dosage_to_ACGT)
+export(fitPoly_add_phys_pos)
 export(fitPoly_to_GWASpoly_input)
 export(fitPoly_to_MAPpoly_input)
 export(fitPoly_to_polyOrigin_input)
+export(plot_progeny_dosage_change)
 export(polyorigin_imputation)
+import(ggplot2)
+import(reshape2)
 importFrom(data.table,fread)
 importFrom(splitstackshape,cSplit)
