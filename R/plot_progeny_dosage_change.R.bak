@@ -139,7 +139,7 @@ plot_progeny_dosage_change <- function(map_list, error, verbose=T){
     ggtitle(paste0("changed = ",round(percent_changed, digits=3),"% ","imputed = ", round(percent_imputed, digits=3),"%"))
   
   print("done")
-  print(paste0("changed = ",round(percent_changed, digits=3),"% ","imputed = ", round(percent_imputed, digits=3),"%"))
+  
   return(plot1) 
   
 }
