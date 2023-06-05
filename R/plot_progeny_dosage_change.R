@@ -141,6 +141,9 @@ plot_progeny_dosage_change <- function(map_list, error, verbose=T){
   print("done")
   print(paste0("changed = ",round(percent_changed, digits=3),"% ","imputed = ", round(percent_imputed, digits=3),"%"))
   return(plot1) 
+  return(percent_changed)
+  return(percent_imputed)
+  
   
 }
 
