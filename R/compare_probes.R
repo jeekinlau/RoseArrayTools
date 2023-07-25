@@ -30,7 +30,7 @@ compare_probes<-function(data_dat,progress=NULL){
   if(is.null(progress)){progress<-T}
   data_dat_name<-gsub(".dat","_",data_dat)
 
-  calls<- as.matrix(fread(data_dat, select = c(1:3,12)))
+  calls<- as.matrix(fread(data_dat, select = c("marker","MarkerName","SampleName","geno")))
 
   if(progress==T){print("Done Importing .dat file")}
 
