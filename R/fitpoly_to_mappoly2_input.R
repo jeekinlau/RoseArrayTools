@@ -24,7 +24,7 @@ fitPoly_to_MAPpoly2_input<-function(input_file, genome=NULL, p1, p2){
   }else if(genome=="saintoyant"){
     genomic_pos = read.csv("https://raw.githubusercontent.com/jeekinlau/RoseArrayTools/master/docs/perfect_fits_saintoyant.csv", header = T)
   }else if(genome=="raymond"){
-    genomic_pos = read.csv("https://raw.githubusercontent.com/jeekinlau/RoseArrayTools/master/docs/perfect_fits_raymond.csv", header = T
+    genomic_pos = read.csv("https://raw.githubusercontent.com/jeekinlau/RoseArrayTools/master/docs/perfect_fits_raymond.csv", header = T)
   }else print("please select genome")
   
   
