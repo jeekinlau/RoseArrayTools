@@ -20,11 +20,11 @@ fitPoly_to_MAPpoly2_input<-function(input_file, genome=NULL, p1, p2){
   file = read.csv(input_file)
   
   if(is.null(genome)){
-    genomic_pos = read.csv("https://raw.githubusercontent.com/jeekinlau/RoseArrayTools/master/docs/perfect_fits_saintoyant.csv", header = T)
+    genomic_pos = read.csv("https://raw.githubusercontent.com/jeekinlau/RoseArrayTools/master/data/perfect_fits_saintoyant.csv", header = T)
   }else if(genome=="saintoyant"){
-    genomic_pos = read.csv("https://raw.githubusercontent.com/jeekinlau/RoseArrayTools/master/docs/perfect_fits_saintoyant.csv", header = T)
+    genomic_pos = read.csv("https://raw.githubusercontent.com/jeekinlau/RoseArrayTools/master/data/perfect_fits_saintoyant.csv", header = T)
   }else if(genome=="raymond"){
-    genomic_pos = read.csv("https://raw.githubusercontent.com/jeekinlau/RoseArrayTools/master/docs/perfect_fits_raymond.csv", header = T)
+    genomic_pos = read.csv("https://raw.githubusercontent.com/jeekinlau/RoseArrayTools/master/data/perfect_fits_raymond.csv", header = T)
   }else print("please select genome")
   
   
@@ -41,15 +41,17 @@ fitPoly_to_MAPpoly2_input<-function(input_file, genome=NULL, p1, p2){
   
   merged_progeny = merged[,-which(colnames(merged)%in%c(p1,p2,"Marker","Chrom","snp_pos","Allele_A","Allele_B"))]
   
-  final = cbind(merged$Marker, p1_geno, p2_geno, merged$LG, merged$Position, merged_progeny)
+  final = cbind(merged$Marker, p1_geno, p2_geno, merged$Chrom, merged$snp_pos,merged$Allele_A,merged$Allele_B, merged_progeny)
   final_colnames <- colnames(final)
   final_colnames[1:7] = c("Marker", "P1", "P2", "chrom", "genome_position","ref","alt")
   colnames(final) = final_colnames
   
-  final = final[order(final$LG, final$Position),]
+  final = final[order(final$chrom, final$genome_position),]
   final = final[-which(is.na(final$P1)),]
   final = final[-which(is.na(final$P2)),]
   
   write.csv(final,paste0(input_file_name,"_mappoly2_ready.csv"),row.names = F)
   print("done")
 }
+
+
