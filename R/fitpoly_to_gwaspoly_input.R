@@ -18,7 +18,7 @@
 fitPoly_to_GWASpoly_input <- function(input_file){
   input_file_name = gsub(".csv","",input_file)
   file = read.csv(input_file)
-  genomic_pos = read.table("https://raw.githubusercontent.com/jeekinlau/RoseArrayTools/master/docs/for_add_genomic_positions_saintoyant2.txt", header = T, sep="\t")
+  genomic_pos = read.table("https://raw.githubusercontent.com/jeekinlau/RoseArrayTools/master/data/for_add_genomic_positions_saintoyant2.txt", header = T, sep="\t")
 
   temp_names = names(file)
   temp_names[1] = "Marker"
