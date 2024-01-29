@@ -6,7 +6,7 @@
 #'
 #' @return a .csv file that has the added columns of genome position and LG of markers. Will contain markers with no known location at bottom of file.
 #'
-#' @export fitPoly_to_GWASpoly_input
+#' @export
 #'
 #'
 #'
@@ -46,14 +46,14 @@ fitPoly_to_GWASpoly_input <- function(input_file){
 #'
 #' @return a .csv file that has the added columns of genome position and LG of markers. Will contain markers with no known location at bottom of file.
 #'
-#' @export fitpoly_to_GWASpoly_input_perfect
+#' @export
 #'
 #'
 #'
 #'
 #'
 
-fitPoly_to_GWASpoly_input_perfect <- function(input_file){
+fitpoly_to_GWASpoly_input_perfect <- function(input_file){
   input_file_name = gsub(".csv","",input_file)
   file = read.csv(input_file)
   genomic_pos = read.csv("https://raw.githubusercontent.com/jeekinlau/RoseArrayTools/master/data/perfect_fits_saintoyant.csv", header = T)
