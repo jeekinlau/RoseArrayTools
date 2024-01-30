@@ -55,7 +55,9 @@ fitPoly_to_GWASpoly_input <- function(input_file){
 
 fitpoly_to_GWASpoly_input_perfect <- function(input_file){
   input_file_name = gsub(".csv","",input_file)
-  file = read.csv(input_file)
+  file = read.csv(input_file,header=F)
+  colnames(file)=file[1,]
+  file=file[-1,]
   genomic_pos = read.csv("https://raw.githubusercontent.com/jeekinlau/RoseArrayTools/master/data/perfect_fits_saintoyant.csv", header = T)
   genomic_pos = genomic_pos[c(1,2,14)]
   colnames(genomic_pos)=c("Marker","LG","Position")
