@@ -8,5 +8,5 @@ Description: This package is a complilation of tools that are used in the Texas 
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-Imports: data.table, splitstackshape
-RoxygenNote: 7.2.3
+Imports: data.table, splitstackshape, reshape2
+RoxygenNote: 7.3.2

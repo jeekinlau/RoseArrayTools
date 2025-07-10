@@ -18,7 +18,7 @@
 #' @importFrom data.table fread
 #'
 #'
-#' @export compare_probes
+#' @export compare_probes call_specs
 #'
 #'
 #'
@@ -124,35 +124,35 @@ compare_probes<-function(data_dat,progress=NULL){
 }
 
 
-#
-#
-# call_specs<-function(kind_counts_file, select_genotypes=NULL){
-#   if(is.null(select_genotypes)){
-#     kinds_of_calls<-as.matrix(read.csv(kind_counts_file,header = T,row.names = 1))
-#     percent_same<-sum(kinds_of_calls=="S",na.rm = T)/(nrow(kinds_of_calls)*(ncol(kinds_of_calls)))
-#     percent_one<-sum(kinds_of_calls=="O",na.rm = T)/(nrow(kinds_of_calls)*(ncol(kinds_of_calls)))
-#     percent_different<-sum(kinds_of_calls=="D",na.rm = T)/(nrow(kinds_of_calls)*(ncol(kinds_of_calls)))
-#     percent_NA<-sum(is.na(kinds_of_calls))/(nrow(kinds_of_calls)*(ncol(kinds_of_calls)))
-#
-#     print(paste("percent______same",percent_same, round((percent_same*nrow(kinds_of_calls)),digits = 0)))
-#     print(paste("percent_______one",percent_one, round((percent_one*nrow(kinds_of_calls)),digits = 0)))
-#     print(paste("percent_different",percent_different, round((percent_different*nrow(kinds_of_calls)),digits=0)))
-#     print(paste("percent________NA",percent_NA, round((percent_NA*nrow(kinds_of_calls)),digits = 0)))}
-#
-#
-#  else{
-#   genotypes<-read.csv(select_genotypes,header = F)
-#   genotypes<-as.character(genotypes[,1])
-#   genotypes<-gsub("-",".",genotypes)
-#   kinds_of_calls<-as.matrix(read.csv(kind_counts_file,header = T,row.names = 1))
-#   kinds_of_calls<-kinds_of_calls[,colnames(kinds_of_calls)%in%genotypes]
-#   percent_same<-sum(kinds_of_calls=="S",na.rm = T)/(nrow(kinds_of_calls)*(ncol(kinds_of_calls)))
-#   percent_one<-sum(kinds_of_calls=="O",na.rm = T)/(nrow(kinds_of_calls)*(ncol(kinds_of_calls)))
-#   percent_different<-sum(kinds_of_calls=="D",na.rm = T)/(nrow(kinds_of_calls)*(ncol(kinds_of_calls)))
-#   percent_NA<-sum(is.na(kinds_of_calls))/(nrow(kinds_of_calls)*(ncol(kinds_of_calls)))
-#
-#   print(paste("percent______same",percent_same, round((percent_same*nrow(kinds_of_calls)),digits = 0)))
-#   print(paste("percent_______one",percent_one, round((percent_one*nrow(kinds_of_calls)),digits = 0)))
-#   print(paste("percent_different",percent_different, round((percent_different*nrow(kinds_of_calls)),digits=0)))
-#   print(paste("percent________NA",percent_NA, round((percent_NA*nrow(kinds_of_calls)),digits = 0)))}
-# }
+
+
+call_specs<-function(kind_counts_file, select_genotypes=NULL){
+  if(is.null(select_genotypes)){
+    kinds_of_calls<-as.matrix(read.csv(kind_counts_file,header = T,row.names = 1))
+    percent_same<-sum(kinds_of_calls=="S",na.rm = T)/(nrow(kinds_of_calls)*(ncol(kinds_of_calls)))
+    percent_one<-sum(kinds_of_calls=="O",na.rm = T)/(nrow(kinds_of_calls)*(ncol(kinds_of_calls)))
+    percent_different<-sum(kinds_of_calls=="D",na.rm = T)/(nrow(kinds_of_calls)*(ncol(kinds_of_calls)))
+    percent_NA<-sum(is.na(kinds_of_calls))/(nrow(kinds_of_calls)*(ncol(kinds_of_calls)))
+
+    print(paste("percent______same",percent_same, round((percent_same*nrow(kinds_of_calls)),digits = 0)))
+    print(paste("percent_______one",percent_one, round((percent_one*nrow(kinds_of_calls)),digits = 0)))
+    print(paste("percent_different",percent_different, round((percent_different*nrow(kinds_of_calls)),digits=0)))
+    print(paste("percent________NA",percent_NA, round((percent_NA*nrow(kinds_of_calls)),digits = 0)))}
+
+
+ else{
+  genotypes<-read.csv(select_genotypes,header = F)
+  genotypes<-as.character(genotypes[,1])
+  genotypes<-gsub("-",".",genotypes)
+  kinds_of_calls<-as.matrix(read.csv(kind_counts_file,header = T,row.names = 1))
+  kinds_of_calls<-kinds_of_calls[,colnames(kinds_of_calls)%in%genotypes]
+  percent_same<-sum(kinds_of_calls=="S",na.rm = T)/(nrow(kinds_of_calls)*(ncol(kinds_of_calls)))
+  percent_one<-sum(kinds_of_calls=="O",na.rm = T)/(nrow(kinds_of_calls)*(ncol(kinds_of_calls)))
+  percent_different<-sum(kinds_of_calls=="D",na.rm = T)/(nrow(kinds_of_calls)*(ncol(kinds_of_calls)))
+  percent_NA<-sum(is.na(kinds_of_calls))/(nrow(kinds_of_calls)*(ncol(kinds_of_calls)))
+
+  print(paste("percent______same",percent_same, round((percent_same*nrow(kinds_of_calls)),digits = 0)))
+  print(paste("percent_______one",percent_one, round((percent_one*nrow(kinds_of_calls)),digits = 0)))
+  print(paste("percent_different",percent_different, round((percent_different*nrow(kinds_of_calls)),digits=0)))
+  print(paste("percent________NA",percent_NA, round((percent_NA*nrow(kinds_of_calls)),digits = 0)))}
+}
