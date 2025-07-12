@@ -32,7 +32,12 @@ devtools::install_github("jeekinlau/RoseArrayTools")
    'call_specs'    
    'polyorigin_imputation'         
    'fitPoly_to_MAPpoly_input'       
+   'fitPoly_to_MAPpoly2_input'
    'fitPoly_to_GWASpoly_input'
+   'fitPoly_to_PolyOrigin_input.R'
+   
+   
+
 
 ## 'compare_probes'      
 **IMPORTANT** this package needs both the R-package "data.table" and internet access.     
@@ -48,7 +53,7 @@ This function 'compare_probes' takes as the input file the .dat long form file t
 
 ## 'compare_probes_defunct' (DEFUNCT DO NOT USE)
 
-**IMPORTANT** this function is now defunct. The ideas behind the description are still valid. However there is a small error that introduces a big error. Please use the compare_probes2 function. Function is still here just for documentation.
+**IMPORTANT** this function is now defunct. The ideas behind the description are still valid. However there is a small error that introduces a big error. Please use the compare_probes2 function. Function is still here just for documentation of previous error.
 
 
 ```{r eval=FALSE, include=T}
@@ -74,6 +79,9 @@ This is how to use the function. Be aware, this function was written as a loop i
 dosage_to_ACGT(dosage.file="path_to_dosage_file.csv", progress=T, separator = "")
 ```
 
+
+## 'call_specs'
+This function uses the output of compare_probes "compared_calls_kind_counts_v2.csv" and provides statistics to percentage of SNPs that both probes have the same call, percentage that have only one probe that had a call, percent that are different, and percent missing. The background information is that the rose array has two probes that both probe each SNP. 
 
 ![image of input file and output file formats no separator](figures/Screenshot2021-04-02151131.png)
 
@@ -145,4 +153,18 @@ fitPoly_to_GWASpoly_input(input_file="input_file_name.csv")
 ```
 
 ![Input and output files](figures/fitpoly_to_GWASpoly.png)
+
+## 'fitPoly_to_PolyOrigin_input'
+
+This function takes the output of fitPoly after the “compare_probes” function and and converts it into an input ready to be used by PolyOrigin.
+
+
+
+
+
+
+
+
+
+
 
