@@ -26,3 +26,10 @@ install.packages('splitstackshape')
     
 Use the link to the Vignette below for the functions included in this package.      
 *[Link to Vignette](https://jeekinlau.github.io/RoseArrayTools/RoseArrayTools_Vignette.html)
+
+# How to cite
+Lau, Jeekin, Ellen L. Young, Sara Collins, Mark T. Windham, Patricia E. Klein, David H. Byrne, and Oscar Riera-Lizarazu. “Rose Rosette Disease Resistance Loci Detected in Two Interconnected Tetraploid Garden Rose Populations.” Frontiers in Plant Science 13 (2022). https://doi.org/10.3389/fpls.2022.916231.
+
+
+# Acknowledgements
+This work was supported by grants from the United States Department of Agriculture, Specialty Crops Research Initiative grant “Combating Rose Rosette Disease: Short and Long Term Approaches” Grant No. 2014-51181-22644 and “Tools for Genomic-Assisted Breeding in Polyploids” Grant No. 2020-51181-32156, the Basye Endowment in Rose Genetics and the American Rose Society.
