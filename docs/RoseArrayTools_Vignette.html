@@ -1513,8 +1513,10 @@ available:</strong></p>
 ‘call_specs’<br />
 ‘polyorigin_imputation’<br />
 ‘fitPoly_to_MAPpoly_input’<br />
-‘fitPoly_to_MAPpoly2_input’ ‘fitPoly_to_GWASpoly_input’
-‘fitPoly_to_PolyOrigin_input.R’</p>
+‘fitPoly_to_MAPpoly2_input’<br />
+‘fitPoly_to_GWASpoly_input’<br />
+‘fitPoly_to_PolyOrigin_input.R’<br />
+‘plot_progeny_dosage_change’</p>
 <div id="compare_probes" class="section level2">
 <h2>‘compare_probes’</h2>
 <p><strong>IMPORTANT</strong> this package needs both the R-package
@@ -1655,6 +1657,17 @@ to MAPpoly on CRAN (Stable)</a><br />
 <div class="figcaption">input and output files</div>
 </div>
 </div>
+<div id="fitpoly_to_mappoly2_input" class="section level2">
+<h2>‘fitPoly_to_MAPpoly2_input’</h2>
+<p>This function takes the output of fitPoly after the “compare_probes”
+function and converts it into an input ready to be used by MAPpoly2.
+usage is slightly different than ‘fitPoly_to_MAPpoly_input’ function.
+with a genome input. If genome is NULL or “saintoyant” then the Rosa
+chinensis genome (Hibrand-Saint Oyant et al., 2018) is used. If genome
+is “raymond” the Rosa chinensis genome (Raymond et al., 2018) is
+used.</p>
+<pre class="r"><code>fitPoly_to_MAPpoly2_input2(input_file=&quot;input_file_name.csv&quot;, genome=NULL, p1=&quot;parent1&quot;, p2=&quot;parent2&quot;)</code></pre>
+</div>
 <div id="fitpoly_to_gwaspoly_input" class="section level2">
 <h2>‘fitPoly_to_GWASpoly_input’</h2>
 <p>This function takes the output of fitPoly after the “compare_probes”
@@ -1677,6 +1690,17 @@ Github</a></p>
 <p>This function takes the output of fitPoly after the “compare_probes”
 function and and converts it into an input ready to be used by
 PolyOrigin.</p>
+</div>
+<div id="plot_progeny_dosage_change" class="section level2">
+<h2>‘plot_progeny_dosage_change’</h2>
+<p>Look at genotypes that were imputed or changed by the HMM chain given
+a level of global genotypic error and outputs a graphical representation
+ggplot with the percent of data changed. The HMM Chain in the mapping
+algorithm makes genotypic changes to the original genotypic data. Thus
+this function allows a user to see how much genotypic dosage changes
+were made to get the final map. The function allows for outputting the
+corrected genotype dosages. This version of the function is OLD and the
+newer one is implemented in ‘mappoly::plot_progeny_dosage_change’ see <a href="https://github.com/mmollina/MAPpoly/blob/main/R/plot_progeny_dosage_change.R" class="uri">https://github.com/mmollina/MAPpoly/blob/main/R/plot_progeny_dosage_change.R</a></p>
 </div>
 </div>
 

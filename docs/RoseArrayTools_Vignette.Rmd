@@ -32,9 +32,10 @@ devtools::install_github("jeekinlau/RoseArrayTools")
    'call_specs'    
    'polyorigin_imputation'         
    'fitPoly_to_MAPpoly_input'       
-   'fitPoly_to_MAPpoly2_input'
-   'fitPoly_to_GWASpoly_input'
-   'fitPoly_to_PolyOrigin_input.R'
+   'fitPoly_to_MAPpoly2_input'    
+   'fitPoly_to_GWASpoly_input'    
+   'fitPoly_to_PolyOrigin_input.R'    
+   'plot_progeny_dosage_change'
    
    
 
@@ -142,7 +143,12 @@ fitPoly_to_MAPpoly_input(input_file="input_file_name.csv", p1="parent1", p2="par
 
 ![input and output files](figures/fitpoly_to_mappoly_ready.png)
 
+## 'fitPoly_to_MAPpoly2_input'
+This function takes the output of fitPoly after the "compare_probes" function and converts it into an input ready to be used by MAPpoly2. usage is slightly different than 'fitPoly_to_MAPpoly_input' function. with a genome input. If genome is NULL or "saintoyant" then the Rosa chinensis genome (Hibrand-Saint Oyant et al., 2018) is used. If genome is "raymond" the Rosa chinensis genome (Raymond et al., 2018) is used.
 
+```{r eval=FALSE, include=T}
+fitPoly_to_MAPpoly2_input2(input_file="input_file_name.csv", genome=NULL, p1="parent1", p2="parent2")
+```
 
 ## 'fitPoly_to_GWASpoly_input'
 This function takes the output of fitPoly after the "compare_probes" function and and converts it into an input ready to be used by GWASpoly. This function also includes the genome positions of the WagRhSNP 68K array aligned to the Old Blush reference genome v1.0(Oyant et al., 2008).            
@@ -159,8 +165,9 @@ fitPoly_to_GWASpoly_input(input_file="input_file_name.csv")
 This function takes the output of fitPoly after the “compare_probes” function and and converts it into an input ready to be used by PolyOrigin.
 
 
+## 'plot_progeny_dosage_change'
 
-
+Look at genotypes that were imputed or changed by the HMM chain given a level of global genotypic error and outputs a graphical representation ggplot with the percent of data changed. The HMM Chain in the mapping algorithm makes genotypic changes to the original genotypic data. Thus this function allows a user to see how much genotypic dosage changes were made to get the final map. The function allows for outputting the corrected genotype dosages. This version of the function is OLD and the newer one is implemented in 'mappoly::plot_progeny_dosage_change' see https://github.com/mmollina/MAPpoly/blob/main/R/plot_progeny_dosage_change.R
 
 
 
